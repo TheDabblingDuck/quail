@@ -4,8 +4,8 @@ name: Build/release
 
 # Controls when the action will run.
 on:
-  push: branches: [ main ]
-  workflow_dispatch:
+  push
+  workflow_dispatch
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
