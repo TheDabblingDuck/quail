@@ -32,7 +32,7 @@ jobs:
       - name: Electron Builder Action
         # You may pin to the exact commit or the version.
         # uses: samuelmeuli/action-electron-builder@92327c67bc45ff7c38bf55d8aa8c4d75b7ea38e7
-        uses: samuelmeuli/action-electron-builder@v1.6.0
+        uses: samuelmeuli/action-electron-builder@v1
         with:
           # GitHub authentication token
           github_token: ${{ secrets.github_token }}
