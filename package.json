@@ -1,28 +1,30 @@
 {
   "name": "Quail",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Question Bank Browser",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "postinstall": "electron-builder install-app-deps",
-		"build": "electron-builder --windows",
-		"release": "electron-builder --windows --publish always"
+    "build": "electron-builder --windows",
+    "release": "electron-builder --windows --publish always"
   },
   "build": {
-		"appId": "TheDabblingDuck.quail",
-		"productName": "Quail",
-		"mac": {
-			"category": "public.app-category.education"
-		},
-		"dmg": {
-			"icon": "quail.icns"
-		},
-		"linux": {
-			"target": ["AppImage"],
-			"category": "Education"
-		}
-	},
+    "appId": "TheDabblingDuck.quail",
+    "productName": "Quail",
+    "mac": {
+      "category": "public.app-category.education"
+    },
+    "dmg": {
+      "icon": "quail.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Education"
+    }
+  },
   "keywords": [],
   "author": "TheDabblingDuck",
   "license": "MIT",

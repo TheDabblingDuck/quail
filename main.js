@@ -2,8 +2,9 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path')
 const fs = require('fs')
 const Store = require('electron-store')
-const dirTree = require("directory-tree");
+const dirTree = require("directory-tree")
 const sanitizeHtml = require('sanitize-html')
+const url = require('url')
 const store = new Store();
 Store.initRenderer();
 
@@ -343,7 +344,7 @@ function loadqbank() {
 
   sendinfo = function() {
     win.webContents.send('qbankinfo', qbankinfo)
-    split = currentpath.split('/')
+    split = url.pathToFileURL(currentpath).toString().split('/')
     foldername = split[split.length-1]
     win.setTitle(`Quail - ${foldername}`)
   }

@@ -1,6 +1,7 @@
 let $ = jQuery = require('jquery')
 let Bootstrap = require('bootstrap')
 const {ipcRenderer} = require('electron')
+const url = require('url')
 
 let localinfo
 let blockKey
@@ -197,8 +198,8 @@ function loadQuestion() {
     ansvisible = false
   }
   qid = blockqlist[selectedQnum]
-  $('#leftreplace').load(localinfo.path + '/' + qid + '-q.html')
-  $('#rightreplace').load(localinfo.path + '/' + qid + '-s.html')
+  $('#leftreplace').load(url.pathToFileURL(localinfo.path).toString() + '/' + qid + '-q.html')
+  $('#rightreplace').load(url.pathToFileURL(localinfo.path).toString() + '/' + qid + '-s.html')
   createAnswerChoiceButtons()
   if(selectedQnum==0) {
     $('#btn-prevques').addClass('disabled')
@@ -217,7 +218,7 @@ function loadQuestion() {
 }
 function updateContent() {
   for (const e of $('img')) {
-    e.src = localinfo.path + '/' + e.src.split('/').pop()
+    e.src = url.pathToFileURL(localinfo.path).toString() + '/' + e.src.split('/').pop()
     e.style.maxWidth = '100%'
   }
   for (const c of $('#leftreplace').find($('img'))) {
@@ -235,14 +236,14 @@ function updateContent() {
   for (const e of $('audio')) {
     if(e.src=='') {
       orig = $(e).find($('source')).get(0).src
-      e.src = localinfo.path + '/' + orig.split('/').pop()
+      e.src = url.pathToFileURL(localinfo.path).toString() + '/' + orig.split('/').pop()
     } else {
-      e.src = localinfo.path + '/' + e.src.split('/').pop()
+      e.src = url.pathToFileURL(localinfo.path).toString() + '/' + e.src.split('/').pop()
     }
   }
   for (const e of $('a')) {
     if(e.href!='') {
-      e.href = localinfo.path + '/' + e.href.split('/').pop()
+      e.href = url.pathToFileURL(localinfo.path).toString() + '/' + e.href.split('/').pop()
     }
   }
   $('#leftcontent').get(0).scrollTop = 0
