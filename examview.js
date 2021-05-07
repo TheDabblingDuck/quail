@@ -376,6 +376,18 @@ ipcRenderer.on('qbankinfo', function (event, qbankinfo) {
 
 })
 
+function customScrollbars() {
+
+  var styleElement = document.createElement("style")
+  styleElement.appendChild(document.createTextNode("div ::-webkit-scrollbar {width: 5px; height: 8px; background-color: #fff;}"))
+  document.getElementsByTagName("head")[0].appendChild(styleElement)
+  var styleElement = document.createElement("style");
+  styleElement.appendChild(document.createTextNode("div ::-webkit-scrollbar-thumb {background: #777;}"));
+  document.getElementsByTagName("head")[0].appendChild(styleElement);
+
+}
+if (process.platform == 'win32') { customScrollbars() }
+
 ipcRenderer.on('dopause', function (event) {
   if(!complete) {
     $('#btn-pause').click()
