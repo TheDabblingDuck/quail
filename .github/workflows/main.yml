@@ -36,3 +36,4 @@ jobs:
         with:
           # GitHub authentication token
           github_token: ${{ secrets.github_token }}
+          release: true
