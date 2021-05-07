@@ -2,7 +2,7 @@
 
 name: buildquail
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v2
         with:
@@ -36,4 +36,4 @@ jobs:
         with:
           # GitHub authentication token
           github_token: ${{ secrets.github_token }}
-          release: true
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
