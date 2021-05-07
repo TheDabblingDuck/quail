@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>qbv</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body style="height: 100%;">
+    <div class="container-fluid" style="height: 100%;padding: 12px;">
+        <div class="row" style="height: 100%;">
+            <div class="col" id="column-questions" style="overflow: scroll;height: 0px;max-width: 120px;min-width: 120px;padding-right: 0px;">
+                <ul id="listgroup-questions" class="list-group border rounded" style="height: 100%;">
+                </ul>
+            </div>
+            <div class="col d-flex flex-column">
+                <div class="row" style="height: 72px;margin-bottom: 12px;">
+                    <div class="col">
+                        <div class="card" style="height: 100%;">
+                            <div class="card-body d-md-flex justify-content-between align-items-md-center" style="padding: 12px;">
+                                <p id="timep" style="margin: 0px; white-space: pre-line;">Time Remaining<br>88:88:88</p><button id="btn-flagged" class="btn btn-outline-warning" type="button" style="font-size: 20px;height: 44px;width: 64px;"><strong>⚑</strong></button>
+                                <div class="btn-group" role="group"><button id="btn-prevques" class="btn btn-primary" type="button" style="font-size: 20px;width: 64px;height: 44px;">❮</button><button id="btn-nextques" class="btn btn-primary btn-nextques" type="button" style="font-size: 20px;width: 64px;height: 44px;">❯</button></div>
+                                <div id="btngrp-panes" class="btn-group" role="group"></div>
+                                <div role="group" class="btn-group" style="height: 44px;"><button class="btn btn-dark" id="btn-pause" type="button" style="width: 64px;font-size: 10px;"> ▌▌</button><button class="btn btn-dark" id="btn-close" type="button" style="width: 64px;font-size: 18px;">✕<br /></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row flex-fill">
+                    <div class="col d-flex flex-column" style="width: 50%;" id="leftcol">
+                        <div class="card flex-grow-1">
+                            <div class="card-body d-md-flex justify-content-md-center" id="leftcard" style="padding: 12px;">
+                                <div id="leftcontent" style="overflow: scroll;height: 0px;">
+                                    <div id="leftreplace"></div>
+                                    <div class="d-inline-flex flex-column" style="padding: 8px;">
+                                        <div class="btn-group mx-auto" role="group" id="btngrp-choices" style="margin: 8px;"></div><button class="btn border rounded-pill mx-auto btn-nextques" id="btn-nextques-inline" type="button" style="padding-right: 36px;padding-left: 36px;color: var(--primary);">→</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex flex-column" style="padding-left: 0px; width: 50%;" id="rightcol" style="padding-left: 0px;">
+                        <div class="card flex-grow-1">
+                            <div class="card-body" id="rightcard" style="padding: 12px;">
+                                <div id="rightcontent" style="overflow: scroll;height: 0px;">
+                                    <div id="rightreplace"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="TextHighlighter.js"></script>
+<script src="examview.js"></script>
+</html>

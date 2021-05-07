@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body style="height: 100%;">
+    <div class="container-fluid d-flex flex-column" style="height: 100%;">
+        <div class="row" style="margin: 16px;">
+            <div class="col d-md-flex flex-grow-0 align-items-md-center">
+                <button class="btn btn-outline-primary d-md-flex align-items-md-center" id="btn-back" type="button" style="padding: 0px 6px 6px;height: 28px;font-size: 32px;margin-top: 2px;margin-right: 12px;">‹</button>
+                <p style="font-size: 24px;margin: 0px;font-weight: bold;">Quail</p>
+            </div>
+            <div class="col d-md-flex justify-content-md-center align-items-md-center">
+                <ul class="nav nav-pills">
+                    <li class="nav-item" id="navbtn-overview"><a class="nav-link" href="#">Overview</a></li>
+                    <li class="nav-item" id="navbtn-newblock"><a class="nav-link" href="#">New Block</a></li>
+                    <li class="nav-item" id="navbtn-prevblocks"><a class="nav-link active" href="#">Previous Blocks</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row flex-fill">
+            <div class="col" style="margin: 16px 24px 48px;">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead id="tableheader">
+                            <tr>
+                                <th>Block #</th>
+                                <th>% Correct</th>
+                                <th>Num Qs</th>
+                                <th>Q Pool</th>
+                                <th>Tags</th>
+                                <th>Start Time</th>
+                                <th>Open</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="qlistModal" tabindex="-1" aria-labelledby="qlistModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="qlistModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p id="qlistModalP"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="previousblocks.js"></script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body style="height: 100%;">
+    <div class="container-fluid d-flex flex-column" style="height: 100%;">
+        <div class="row" style="margin: 16px;">
+            <div class="col d-md-flex flex-grow-0 align-items-md-center">
+              <button class="btn btn-outline-primary d-md-flex align-items-md-center" id="btn-back" type="button" style="padding: 0px 6px 6px;height: 28px;font-size: 32px;margin-top: 2px;margin-right: 12px;">‹</button>
+              <p style="font-size: 24px;margin: 0px;font-weight: bold;">Quail</p>
+            </div>
+            <div class="col d-md-flex justify-content-md-center align-items-md-center">
+                <ul class="nav nav-pills">
+                    <li class="nav-item" id="navbtn-overview"><a class="nav-link" href="#">Overview</a></li>
+                    <li class="nav-item" id="navbtn-newblock"><a class="nav-link active" href="#">New Block</a></li>
+                    <li class="nav-item" id="navbtn-prevblocks"><a class="nav-link" href="#">Previous Blocks</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="spinner" class="d-flex flex-column flex-grow-1 justify-content-center align-items-center">
+          <div class="spinner-border" style="width: 72px; height: 72px;" role="status"></div>
+        </div>
+        <div id="pagecontent" class="row flex-fill d-none">
+            <div class="col">
+                <div class="card" style="margin: 16px 16px 24px;">
+                    <div class="card-header">
+                        <p style="margin: 0px;">Question Pool</p>
+                    </div>
+                    <div class="card-body">
+                        <div id="btngrp-qpool" class="btn-group border rounded btn-group-toggle" role="group"><button class="btn btn-primary" id="btn-qpool-unused" type="button">Unused</button><button class="btn btn-light" id="btn-qpool-incorrects" type="button">Incorrects</button><button class="btn btn-light" id="btn-qpool-flagged" type="button">Flagged</button><button class="btn btn-light" id="btn-qpool-all" type="button">All</button><button class="btn btn-light" id="btn-qpool-custom" type="button">Custom</button></div>
+                        <div id="div-qpool-customids" style="margin-top: 18px;">
+                            <p>Paste in question IDs separated by commas:</p><textarea id="textarea-qpool-customids" style="width: 70%;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div id="tagscard" class="card" style="margin: 16px 16px 24px;">
+                    <div class="card-header">
+                        <p style="margin: 0px;">Tags</p>
+                    </div>
+                    <div class="card-body">
+                        <div id="btngrp-tags" class="btn-group border rounded btn-group-toggle" role="group"><button class="btn btn-primary" id="btn-tags-all" type="button">All Tags</button><button class="btn btn-light" id="btn-tags-filtered" type="button" disabled>Filtered</button></div>
+                        <div style="margin-top: 18px;">
+                            <div role="tablist" id="accordion-tags">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin: 16px 16px 24px;">
+                    <div class="card-header">
+                        <p style="margin: 0px;">Block Settings</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <p style="margin-bottom: 12px;">Number of Questions</p>
+                                <input type="text" id="textinput-block-numques" style="width: 80px;"> / <span id="numAvailableQues" class="badge badge-pill badge-success" style="font-size: 16px;">XXXX</span> available
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-switch" style="margin-bottom: 12px;"><input class="custom-control-input" type="checkbox" id="toggle-block-timed" checked=""><label class="custom-control-label" for="toggle-block-timed">Timed</label></div>
+                                <div id="timed-info">
+                                  <input id="textinput-block-timeperq" type="text" style="width: 80px;"> sec / question
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" id="toggle-block-sequential" /><label class="custom-control-label" for="toggle-block-sequential">Present question IDs sequentially (useful for practice exams)</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="custom-control custom-switch"><input class="custom-control-input" type="checkbox" id="toggle-block-showans"><label class="custom-control-label" for="toggle-block-showans">Allow checking answers in incomplete block</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-md-flex justify-content-md-start" style="margin: 16px 16px 48px;"><button class="btn btn-success" id="btn-startblock" type="button" style="padding: 12px 48px;font-weight: bold;">Start Block</button></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="newblock.js"></script>
+</html>
