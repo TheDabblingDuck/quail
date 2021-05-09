@@ -4,11 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>quailsite</title>
+    <title>Quail - Question bank browser</title>
+    <meta name="description" content="Quail - A free and open-source browser for question banks">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Features-Blue.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Clean.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -24,9 +32,9 @@
         <div class="container hero">
             <div class="row">
                 <div class="col-12 col-md-3 col-lg-4 col-xl-4 col-xxl-4 offset-xl-1 d-flex flex-column justify-content-center" style="margin-left: 0px;">
-                    <h1 style="margin: 0px;">Quail</h1>
-                    <p><svg id="Capa_1" enable-background="new 0 0 508.003 508.003" height="100" viewBox="0 0 508.003 508.003" width="100" xmlns="http://www.w3.org/2000/svg" style="fill:white; margin-top:24px"><g><g><circle cx="343.299" cy="133.945" r="14.883"/><path d="m378.145 29.766h24.685c8.219 0 14.883-6.664 14.883-14.883s-6.664-14.883-14.883-14.883h-24.685c-43.834 0-79.495 35.661-79.495 79.495v11.385c-18.401 18.798-29.766 44.51-29.766 72.831 0 24.619-20.029 44.648-44.648 44.648-90.84 0-163.711 75.592-163.711 165.695v59.531c0 8.219 6.664 14.883 14.883 14.883h109.864l25.652 51.304c3.677 7.353 12.618 10.332 19.968 6.656 7.352-3.676 10.332-12.616 6.656-19.968l-18.996-37.992h5.684c6.739 0 13.425-.358 20.043-1.05l26.177 52.354c3.677 7.353 12.618 10.332 19.968 6.656 7.352-3.676 10.332-12.616 6.656-19.968l-22.377-44.753c80.927-22.152 143.011-97.77 143.011-188.7v-148.827c0-8.206 6.676-14.883 14.883-14.883 8.219 0 14.883-6.664 14.883-14.883s-6.664-14.883-14.883-14.883h-59.531c-15.536 0-30.286 3.424-43.542 9.549 4.799-22.436 24.773-39.314 48.621-39.314zm-153.909 208.359c15.393 0 29.708-4.698 41.59-12.735-14.74 76.145-81.166 133.782-160.652 133.782h-14.078c7.33-67.976 64.238-121.047 133.14-121.047zm148.828-148.828h17.433c-1.651 4.656-2.55 9.667-2.55 14.883v148.828c0 91.365-73.441 165.695-163.711 165.695h-133.945v-29.766h14.883c107.002 0 193.477-88.573 193.477-195.461v-29.766c-.001-41.031 33.381-74.413 74.413-74.413z"/></g></g></svg></p>
-                    <p style="margin: 24px 0px 12px;">A free and open-source browser for question banks</p>
+                    <h1 style="margin-top: 0px;">Quail</h1>
+                    <p><svg id="Capa_1" enable-background="new 0 0 508.003 508.003" height="100" viewBox="0 0 508.003 508.003" width="100" xmlns="http://www.w3.org/2000/svg" style="fill:#fff;"><g><g><circle cx="343.299" cy="133.945" r="14.883"/><path d="m378.145 29.766h24.685c8.219 0 14.883-6.664 14.883-14.883s-6.664-14.883-14.883-14.883h-24.685c-43.834 0-79.495 35.661-79.495 79.495v11.385c-18.401 18.798-29.766 44.51-29.766 72.831 0 24.619-20.029 44.648-44.648 44.648-90.84 0-163.711 75.592-163.711 165.695v59.531c0 8.219 6.664 14.883 14.883 14.883h109.864l25.652 51.304c3.677 7.353 12.618 10.332 19.968 6.656 7.352-3.676 10.332-12.616 6.656-19.968l-18.996-37.992h5.684c6.739 0 13.425-.358 20.043-1.05l26.177 52.354c3.677 7.353 12.618 10.332 19.968 6.656 7.352-3.676 10.332-12.616 6.656-19.968l-22.377-44.753c80.927-22.152 143.011-97.77 143.011-188.7v-148.827c0-8.206 6.676-14.883 14.883-14.883 8.219 0 14.883-6.664 14.883-14.883s-6.664-14.883-14.883-14.883h-59.531c-15.536 0-30.286 3.424-43.542 9.549 4.799-22.436 24.773-39.314 48.621-39.314zm-153.909 208.359c15.393 0 29.708-4.698 41.59-12.735-14.74 76.145-81.166 133.782-160.652 133.782h-14.078c7.33-67.976 64.238-121.047 133.14-121.047zm148.828-148.828h17.433c-1.651 4.656-2.55 9.667-2.55 14.883v148.828c0 91.365-73.441 165.695-163.711 165.695h-133.945v-29.766h14.883c107.002 0 193.477-88.573 193.477-195.461v-29.766c-.001-41.031 33.381-74.413 74.413-74.413z"/></g></g></svg></p>
+                    <p style="margin: 0px 0px 12px;">A free and open-source browser for question banks</p>
                     <p style="margin: 12px 0px 12px;">Current preview: v0.1.7-alpha</p>
                     <p><a class="btn btn-outline-light mx-auto" role="button" target="_blank" href="https://github.com/TheDabblingDuck/quail/releases">↓&nbsp;Download</a></p>
                 </div>
@@ -72,6 +80,96 @@
             </div>
         </div>
     </section>
+    <section class="features-blue" style="background: linear-gradient(55deg, rgb(22,39,107), rgb(39,164,183));">
+        <div class="container">
+            <div class="intro" style="margin-bottom: 42px;">
+                <h2 class="text-center" style="font-weight: normal;padding: 60px 0px 0px;margin: 0px 0px 20px;">Quail is BYOqB</h2>
+                <p class="text-center">Meaning, bring your own question bank.</p>
+            </div>
+            <div class="row features">
+                <div class="col-sm-6 col-md-4 item"><i class="far fa-edit icon" style="color: var(--bs-white);"></i>
+                    <h3 class="name">Create</h3>
+                    <p class="description">Question banks are made up of HTML files that can be created in graphical web editors or even word processors.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fas fa-share-alt icon" style="color: var(--bs-white);"></i>
+                    <h3 class="name">Share</h3>
+                    <p class="description">Sharing a question bank is no harder than sharing a folder. Remember to avoid copyright infringement.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fas fa-sync-alt icon" style="color: var(--bs-white);"></i>
+                    <h3 class="name">Sync</h3>
+                    <p class="description">Progress is saved in a file within the question bank folder, so any sync service (Dropbox, Google Drive, etc) can be used.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="highlight-clean">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="font-weight: normal;">Creating a Question Bank</h2>
+            </div>
+            <div class="accordion" role="tablist" id="accordion-1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab" style="margin-bottom: 0px;"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="false" aria-controls="accordion-1 .item-1">Basic Structure</button></h2>
+                    <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                        <div class="accordion-body">
+                            <p class="mb-0">Quail question banks are folders enclosing HTML files for questions and solutions. Each question/solution pair is defined by a numerical question ID that is the start of both filenames. Files for questions end in '-q.html' and files for solutions end in '-s.html'.<br><br>You can generate HTML from formatted text using a variety of software, including online tools (<a href="https://html-online.com/editor/" target="_blank">like this one</a>) or even Microsoft Word (Save As &gt; Web Page).<br><br>Example: create a new folder containing the files&nbsp;<code>001-q.html</code> and&nbsp;<code>001-s.html</code> for question #1 and solution #1. The next question/solution pair will be named&nbsp;<code>002-q.html</code> and&nbsp;<code>002-s.html</code>, and so on.<br><br>Media files such as images and audio can be included in the question bank folder. Embed the media inside the html files to have it display within questions or solutions. For example,&nbsp;<code>001-img-1.png</code> can be embedded in&nbsp;&nbsp;<code>001-q.html</code>&nbsp; by including&nbsp;&nbsp;<code>&lt;img src="./001-img-1.png"&gt;</code>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab" style="margin-bottom: 0px;"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Choices and Correct Answer</button></h2>
+                    <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
+                        <div class="accordion-body">
+                            <p class="mb-0">In question files, Quail will automatically detect answer choices if they have the following characteristics: (1) composed of a single capital letter (A, B, C, etc.), (2) begin on a new line, and (3) are followed by a ')' or '.' before the answer choice text. For example:<br><br><code>A) Quail<br>B) Cockatoo<br>C) Parakeet<br>D) Magpie</code><br><br>In solution files, Quail will automatically detect the correct answer if it is written in the following format:<br><br><code>Correct Answer: A<br></code></p>
+                            <hr>
+                            <p>Optional:<br><br>Automatic detection can be unreliable, so having a&nbsp;<code>choices.json</code>&nbsp;file is a better way to include choice and correct answer information. This file is created using question IDs as keys, and includes each answer option as well as the correct answer. <br><br><code>{<br>&nbsp; "001": {"options":["A","B","C","D"], "correct":"A"},<br>&nbsp; "002": {"options":["A","B","C","D","E","F","G","H"], "correct":"D"},<br>&nbsp; "003": {"options":["A","B","C","D"], "correct":"C"}<br>}</code><br><br>The example above defines answer options and correct answers for 3 questions with question IDs '001', '002', and '003'.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab" style="margin-bottom: 0px;"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Tags (Optional)</button></h2>
+                    <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
+                        <div class="accordion-body">
+                            <p class="mb-0">Tags and subtags allow for categorizing questions on multiple axes. For example, a question about the quail (bird) can be tagged as 'Animal Type': 'Bird', and 'Conservation Status': 'Least Concern".<br><br>Create a file&nbsp;<code>tagnames.json</code>&nbsp;that contains the names of top level tags in this format:<br><code>{<br>&nbsp; "tagnames": {"0": "Animal Type",&nbsp;"1": "Conservation Status"}<br>}<br></code><br>Create a file <code>index.json</code>&nbsp;that contains question IDs as keys and the corresponding subtags for each tag. For example:<br><code>{<br>&nbsp; "001": {"0":"Bird", "1":"Least Concern"}, <br>&nbsp; "002": {"0":"Mammal", "1":"Critically Endangered"}, <br>&nbsp; "003": {"0":"Reptile", "1":"Vulnerable"}<br>}<br></code><br>In this example, there are 3 questions with question IDs '001', '002', and '003', all of which are categorized by animal type and conservation status. 'Bird', 'Mammal', and 'Reptile' are all subtags of 'Animal Type' (indicated by key = '0'), and 'Least Concern', 'Critically Endangered', and 'Vulnerable' are all subtags of 'Conservation Status' (indicated by key = '1').&nbsp;<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab" style="margin-bottom: 0px;"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-4" aria-expanded="false" aria-controls="accordion-1 .item-4">Panes (Optional)</button></h2>
+                    <div class="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-1">
+                        <div class="accordion-body">
+                            <p class="mb-0">Question banks can define info panes that are available to the user during exam mode. Each question pane is an HTML file that opens in a popup. For example, we can create two panes,&nbsp;<code>presidents.html</code> and <code>calculator.html</code>.&nbsp;<br><br>To allow quail to recognize these panes, create a file&nbsp;<code>panes.json</code>&nbsp;formatted as shown below. The key ("Presidents" or "Calculator") is used as the text for the button to open that pane. The corresponding HTML file is specified for each key, and an initial popup size (in pixels) may be defined as well.<br><code>{<br>&nbsp; "Presidents": {<br>&nbsp; &nbsp; "file": "presidents.html",<br>&nbsp; &nbsp; "prefs": "width=400,height=800"<br>&nbsp; &nbsp;},<br>&nbsp; "Calculator": {<br>&nbsp; &nbsp; "file": "calculator.html",<br>&nbsp; &nbsp; "prefs": "width=300,height=450"<br>&nbsp; &nbsp;}<br>}<br></code><br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab" style="margin-bottom: 0px;"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-5" aria-expanded="false" aria-controls="accordion-1 .item-5">Groups (Optional)</button></h2>
+                    <div class="accordion-collapse collapse item-5" role="tabpanel" data-bs-parent="#accordion-1">
+                        <div class="accordion-body">
+                            <p class="mb-0">Quail allows for ordered question groups that should be displayed sequentially. Any question can define a question ID to come before it, and another question ID to come after it.<br><br>For example, create a file&nbsp;<code>groups.json</code> formatted like this:<br><br><code>{<br>&nbsp; "003": {"next": "004", "prev": null}, <br>&nbsp; "004": {"next": null, "prev": "003"}<br>}<br><br></code>The example above involves 2 questions with IDs '003' and '004'. <br><br>Question '003' uses&nbsp;<code>"next": "004"</code> to specify that question '004' should always appear next, and uses&nbsp;<code>"prev": null</code> to specify that there is not a question that should precede it.<br><br>Question '004' uses&nbsp;<code>"next": null</code>&nbsp;to specify there is no specific question that needs to appear next, and uses&nbsp;<code>"prev": "003"</code>&nbsp;to specify that question '003' should always appear before it.<br><br>Other questions ('001', '002', '005', etc.) are not affected by the groups defined above. Only question IDs involved in groups should be listed in this file.&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" role="tab" style="margin-bottom: 0px;"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-6" aria-expanded="false" aria-controls="accordion-1 .item-6">Scraping Web Content (Optional)</button></h2>
+                    <div class="accordion-collapse collapse item-6" role="tabpanel" data-bs-parent="#accordion-1">
+                        <div class="accordion-body">
+                            <p class="mb-0">If you're trying to recreate a question set found online for use in Quail, the following tools may be helpful:<br><br></p>
+                            <ul style="color: var(--bs-secondary);">
+                                <li><a href="https://www.selenium.dev/" target="_blank">Selenium WebDriver</a>&nbsp;- allows for programmatic control of a browser, including saving content to files</li>
+                            </ul>
+                            <p>Remember that commercial materials are usually protected by copyright, and therefore should not be reproduced for use with Quail.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-basic">
+        <ul class="list-inline" style="margin-bottom: 18px;">
+            <li class="list-inline-item"><a href="https://github.com/TheDabblingDuck/quail" target="_blank">Quail on Github</a></li>
+        </ul><div style="color:grey; text-align:center;">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/Lightbox-Gallery.js"></script>
