@@ -184,6 +184,9 @@ function createAnswerChoiceButtons() {
     if(!complete && !ansvisible) {
       $('.btn-choice').removeClass('active')
       $(this).addClass('active')
+      if( localinfo.progress.blockhist[blockKey].answers[selectedQnum]=='' ) {
+        ipcRenderer.send('answerselect')
+      }
       localinfo.progress.blockhist[blockKey].answers[selectedQnum] = $(this).text()
       $('.list-group-item').get(selectedQnum).style.fontWeight = 'normal'
     }
@@ -198,8 +201,11 @@ function loadQuestion() {
     ansvisible = false
   }
   qid = blockqlist[selectedQnum]
-  $('#leftreplace').load(url.pathToFileURL(localinfo.path).toString() + '/' + qid + '-q.html')
-  $('#rightreplace').load(url.pathToFileURL(localinfo.path).toString() + '/' + qid + '-s.html')
+  $('#leftreplace').load(url.pathToFileURL(localinfo.path).toString() + '/' + qid + '-q.html', function() {
+    $('#rightreplace').load(url.pathToFileURL(localinfo.path).toString() + '/' + qid + '-s.html', function() {
+      updateContent()
+    })
+  })
   createAnswerChoiceButtons()
   if(selectedQnum==0) {
     $('#btn-prevques').addClass('disabled')
@@ -214,11 +220,12 @@ function loadQuestion() {
   if(!complete && showans) {
     $('#btn-nextques-inline').text('Check Answer')
   }
-  setTimeout(updateContent, 50)
 }
 function updateContent() {
+  apppath = window.document.URL.match(/(.+)\/examview.html/)[1]
+  qbpath = url.pathToFileURL(localinfo.path).toString()
   for (const e of $('img')) {
-    e.src = url.pathToFileURL(localinfo.path).toString() + '/' + e.src.split('/').pop()
+    e.src = e.src.replace(apppath, qbpath)
     e.style.maxWidth = '100%'
   }
   for (const c of $('#leftreplace').find($('img'))) {
@@ -236,14 +243,15 @@ function updateContent() {
   for (const e of $('audio')) {
     if(e.src=='') {
       orig = $(e).find($('source')).get(0).src
-      e.src = url.pathToFileURL(localinfo.path).toString() + '/' + orig.split('/').pop()
+      e.src = orig.replace(apppath, qbpath)
     } else {
-      e.src = url.pathToFileURL(localinfo.path).toString() + '/' + e.src.split('/').pop()
+      assetpath = e.src.replace(window.document.URL.match(/(.+)\/examview.html/)[1], '')
+      e.src = e.src.replace(apppath, qbpath)
     }
   }
   for (const e of $('a')) {
     if(e.href!='') {
-      e.href = url.pathToFileURL(localinfo.path).toString() + '/' + e.href.split('/').pop()
+      e.href = e.href.replace(apppath, qbpath)
     }
   }
   $('#leftcontent').get(0).scrollTop = 0

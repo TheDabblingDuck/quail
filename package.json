@@ -1,6 +1,6 @@
 {
   "name": "Quail",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Question Bank Browser",
   "main": "main.js",
   "scripts": {
@@ -34,11 +34,13 @@
     "electron-builder": "22.10.5"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "directory-tree": "^2.2.9",
     "electron-store": "^8.0.0",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
-    "sanitize-html": "^2.3.3"
+    "sanitize-html": "^2.3.3",
+    "uuid": "^8.3.2"
   }
 }

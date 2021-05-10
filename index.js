@@ -11,7 +11,7 @@ ipcRenderer.on('folderpaths', function (event, folderpaths) {
   $('li').remove()
   for (const path of folderpaths) {
     split = url.pathToFileURL(path).toString().split('/')
-    foldername = split[split.length-1]
+    foldername = decodeURIComponent(split[split.length-1])
     newrow = `<li path="${path}" class="list-group-item">${foldername}<button class="close"><span class="delete" path="${path}" aria-hidden="true">×</span></button></li>`
     $('.list-group').append(newrow)
   }

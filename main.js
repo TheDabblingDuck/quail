@@ -5,6 +5,8 @@ const Store = require('electron-store')
 const dirTree = require("directory-tree")
 const sanitizeHtml = require('sanitize-html')
 const url = require('url')
+const { v4: uuidv4 } = require('uuid')
+const axios = require('axios').default
 const store = new Store();
 Store.initRenderer();
 
@@ -15,6 +17,42 @@ folderpaths = []
 currentpath = ''
 qbankinfo = {}
 doiquit = false
+
+
+//GA tracking
+let uuid
+if( store.has('uuid') ) {
+  uuid = store.get('uuid')
+} else {
+  uuid = uuidv4()
+  store.set('uuid', uuid)
+}
+function gaPageview(pagename) {
+  const payload = new URLSearchParams({
+      v: 1,
+      cid: uuid,
+      tid: 'UA-171633786-3',
+      t: 'pageview',
+      dp: `/${pagename}.html`,
+      dt: pagename
+  }).toString()
+  axios.post('https://google-analytics.com/collect', payload)
+}
+function gaEvent(eventname) {
+  const payload = new URLSearchParams({
+    v: 1,
+    cid: uuid,
+    tid: 'UA-171633786-3',
+    t: 'event',
+    ec: eventname,
+    ea: eventname
+  }).toString();
+  axios.post('https://google-analytics.com/collect', payload);
+}
+ipcMain.on("answerselect", (e)=>{
+  gaEvent('answerselect')
+})
+
 
 if (store.has('folderpaths')) {
   folderpaths = (store.get(folderpaths))['folderpaths']
@@ -34,13 +72,14 @@ function createWindow () {
   })
 
   win.setTitle('Quail')
-  win.loadFile('index.html')
   sendinfo = function() {
     win.webContents.send('folderpaths', folderpaths)
   }
   win.webContents.on('did-finish-load', () => {
     sendinfo()
   })
+  win.loadFile('index.html')
+  gaPageview('index')
 }
 
 function appquit() {
@@ -262,6 +301,7 @@ ipcMain.on("index-openbtn-click",(e)=>{
       }
 
       win.loadFile('loadbank.html')
+      gaPageview('loadbank')
 
     } else {
       dialog.showMessageBoxSync(win, {message: 'Folder already added', type:'error'})
@@ -345,11 +385,12 @@ function loadqbank() {
   sendinfo = function() {
     win.webContents.send('qbankinfo', qbankinfo)
     split = url.pathToFileURL(currentpath).toString().split('/')
-    foldername = split[split.length-1]
+    foldername = decodeURIComponent(split[split.length-1])
     win.setTitle(`Quail - ${foldername}`)
   }
 
   win.loadFile('overview.html')
+  gaPageview('overview')
 }
 
 ipcMain.on("index-start", (e, clickedpath)=>{
@@ -370,14 +411,17 @@ ipcMain.on("index-delete", (e, path)=>{
 
 ipcMain.on("navto-overview", (e)=>{
   win.loadFile('overview.html')
+  gaPageview('overview')
 })
 
 ipcMain.on("navto-newblock", (e)=>{
   win.loadFile('newblock.html')
+  gaPageview('newblock')
 })
 
 ipcMain.on("navto-prevblocks", (e)=>{
   win.loadFile('previousblocks.html')
+  gaPageview('previousblocks')
 })
 
 ipcMain.on("navto-index", (e)=>{
@@ -386,6 +430,7 @@ ipcMain.on("navto-index", (e)=>{
   }
   win.loadFile('index.html')
   win.setTitle(`Quail`)
+  gaPageview('index')
 })
 
 // bucket helper functions
@@ -446,6 +491,7 @@ ipcMain.on("startblock", (e, blockqlist)=>{
   }
   qbankinfo.blockToOpen = newblockkey
   win.loadFile('examview.html')
+  gaEvent('startblock')
 
 })
 
@@ -476,6 +522,7 @@ ipcMain.on("pauseblock", (e, progress)=>{
 ipcMain.on("openblock", (e, thiskey)=>{
   qbankinfo.blockToOpen = thiskey
   win.loadFile('examview.html')
+  gaEvent('openblock')
 })
 
 ipcMain.on("deleteblock", (e, thiskey)=>{
@@ -496,3 +543,11 @@ ipcMain.on("deleteblock", (e, thiskey)=>{
           console.log(err)
   })
 })
+
+
+
+
+
+
+
+//
