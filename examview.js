@@ -249,6 +249,9 @@ function updateContent() {
       e.src = e.src.replace(apppath, qbpath)
     }
   }
+  for (const e of $('video')) {
+    e.src = e.src.replace(apppath, qbpath)
+  }
   for (const e of $('a')) {
     if(e.href!='') {
       e.href = e.href.replace(apppath, qbpath)
