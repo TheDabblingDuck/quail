@@ -1,6 +1,6 @@
 {
   "name": "Quail",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Question Bank Browser",
   "main": "main.js",
   "scripts": {
