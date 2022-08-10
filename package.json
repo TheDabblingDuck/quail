@@ -6,10 +6,8 @@
   "scripts": {
     "start": "electron .",
     "postinstall": "electron-builder install-app-deps",
-    "build": "run-s build:*",
-    "buildlinux": "electron-builder --linux",
-    "buildmac": "electron-builder --mac",
-    "releaselinux": "electron-builder --linux --publish always"
+    "build": "electron-builder --mac --windows --linux",
+		"release": "electron-builder --mac --windows --linux --publish always"
   },
   "build": {
     "appId": "TheDabblingDuck.quail",
